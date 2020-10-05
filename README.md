@@ -77,6 +77,53 @@ See [definition](.src/ReactNativeSvg.re) for more details.
 
 ---
 
+## Demo
+
+```
+// src/icons/Star.re
+
+open ReactNative
+open ReactNativeSvg;
+
+let radiusOut = 1000.;
+let o1x = 1200. +. Js.Math.cos((90. -. 360. /. 5. *. 0.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o1y = 1200. -. Js.Math.sin((90. -. 360. /. 5. *. 0.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o2x = 1200. +. Js.Math.cos((90. -. 360. /. 5. *. 1.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o2y = 1200. -. Js.Math.sin((90. -. 360. /. 5. *. 1.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o3x = 1200. +. Js.Math.cos((90. -. 360. /. 5. *. 2.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o3y = 1200. -. Js.Math.sin((90. -. 360. /. 5. *. 2.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o4x = 1200. +. Js.Math.cos((90. -. 360. /. 5. *. 3.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o4y = 1200. -. Js.Math.sin((90. -. 360. /. 5. *. 3.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o5x = 1200. +. Js.Math.cos((90. -. 360. /. 5. *. 4.) *. Js.Math._PI /. 180.) *. radiusOut;
+let o5y = 1200. -. Js.Math.sin((90. -. 360. /. 5. *. 4.) *. Js.Math._PI /. 180.) *. radiusOut;
+let radiusIn = 560.;
+let i1x = 1200. +. Js.Math.cos((54. -. 360. /. 5. *. 0.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i1y = 1200. -. Js.Math.sin((54. -. 360. /. 5. *. 0.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i2x = 1200. +. Js.Math.cos((54. -. 360. /. 5. *. 1.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i2y = 1200. -. Js.Math.sin((54. -. 360. /. 5. *. 1.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i3x = 1200. +. Js.Math.cos((54. -. 360. /. 5. *. 2.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i3y = 1200. -. Js.Math.sin((54. -. 360. /. 5. *. 2.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i4x = 1200. +. Js.Math.cos((54. -. 360. /. 5. *. 3.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i4y = 1200. -. Js.Math.sin((54. -. 360. /. 5. *. 3.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i5x = 1200. +. Js.Math.cos((54. -. 360. /. 5. *. 4.) *. Js.Math._PI /. 180.) *. radiusIn;
+let i5y = 1200. -. Js.Math.sin((54. -. 360. /. 5. *. 4.) *. Js.Math._PI /. 180.) *. radiusIn;
+
+[@react.component]
+let make = (~color: string, ~fill: bool = false, ~size: float = 24., ~weight: float = 160.) => {
+	<Svg width={size -> Style.dp} height={size -> Style.dp} viewBox="0 0 2400 2400">
+		<Path
+			d={j|M $o1x,$o1y L $i1x,$i1y L $o2x,$o2y L $i2x,$i2y L $o3x,$o3y L $i3x,$i3y L $o4x,$o4y L $i4x,$i4y L $o5x,$o5y L $i5x,$i5y z|j}
+			stroke={color}
+			strokeWidth={weight -> Style.dp}
+			strokeLinejoin=`round
+			strokeLinecap=`round
+			fill={fill ? color : "none"}
+		/>
+	</Svg>
+}
+
+```
+
 ## Changelog
 
 Check the [changelog](./CHANGELOG.md) for more informations about recent
